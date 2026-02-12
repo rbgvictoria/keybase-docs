@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@import "highlight.js/styles/github-dark.css";
+
+/* This replaces the 'content' array in the old config */
+@source "../../../source/**/*";
+
+/* @source "../../../../keybase-2025/resources/js*.jsx"; */
+
+
+@layer components {
+    .fade-in {
+        animation: fadeIn 0.01s ease-in;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }  
+}
+
+/* Customize the prose plugin's internal spacing */
+@utility prose {
+  line-height: var(--leading-normal);
+
+  p, li {
+    line-height: inherit;
+  }
+
+  p {
+    margin-top: 0.6em;    /* Original is ~1.14em */
+    margin-bottom: 0.6em; /* Original is ~1.14em */
+  }
+
+
+  /* 1. Remove margins from nested lists */
+  ul ul, ul ol, ol ul, ol ol {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /* 2. Remove margins from list items themselves */
+  li {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /* 3. CRITICAL: Remove margins from paragraphs inside lists */
+  /* Markdown often wraps text in <p> if there's a line break */
+  li > p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /* 4. Fix the "Last Child" gap */
+  /* Typography often adds a bottom margin to the very last element in an LI */
+  li > :last-child {
+    margin-bottom: 0;
+  }
+}
+

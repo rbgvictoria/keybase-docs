@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>KeyBase | Anatomy of pathway keys</title>
+      <meta name="description" content="KeyBase provides interactive identification keys for botanical research and education, featuring comprehensive flora databases and taxonomic tools." />
+      <link rel="preconnect" href="https://fonts.bunny.net" />
+      <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+      <link rel="icon" href="/favicon.ico" sizes="any">
+            <link rel="stylesheet" href="/assets/build/assets/main-D6jHF53q.css">
+      
+  </head>
+  
+  <body class="fade-in min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-green-900 font-sans">
+      <header class="sticky top-0 z-50 border-b border-green-100 bg-white/80 backdrop-blur-md dark:border-gray-700 dark:bg-gray-900/80">
+    <div class="container mx-auto px-4 py-4">
+        <nav class="flex items-center justify-between">
+    <div class="flex items-center space-x-10">
+        
+        <a href="/" class="flex items-center space-x-2 transition-opacity hover:opacity-80">
+            <img src="/assets/images/keybase-logo-80.png" alt="KeyBase" class="h-8 w-8 invert dark:invert-0" width="32" height="32" />
+            <span class="text-2xl font-bold text-gray-900 dark:text-white">KeyBase</span>
+        </a>
+
+        
+        <div class="hidden items-center space-x-8 md:flex">
+            <a href="/projects" class="text-gray-600 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">Projects</a>
+            <a href="/about" class="text-gray-600 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">About</a>
+            <a href="/docs/api" class="text-gray-600 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">API</a>
+            <a href="/docs" class="text-gray-600 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">Docs</a>
+        </div>
+    </div>
+            
+    <div class="flex items-center gap-3">
+        
+        <div class="hidden md:flex items-center ml-auto">
+            <div id="user-auth-container" class="relative">
+    
+    <a id="guest-login-link" href="/login"
+        class="hidden items-center space-x-2 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 w-fit">
+        <img src="https://orcid.org/assets/vectors/orcid.logo.icon.svg" alt="ORCID" class="h-4 w-4" />
+        <span>Login with ORCID</span>
+    </a>
+
+    
+    <div id="auth-user-menu" class="hidden">
+        
+        <div class="hidden md:block">
+            <button type="button" id="user-menu-button"
+                class="flex rounded-full border-2 border-transparent transition hover:border-green-200 focus:outline-none">
+                <div id="user-initials"
+                    class="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 font-semibold text-sm">
+                </div>
+            </button>
+
+            <div id="user-dropdown"
+                class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-lg border border-gray-300 bg-white shadow-lg overflow-hidden dark:bg-black dark:border-gray-700">
+                <div class="px-4 py-2 rounded-t-lg border-b border-gray-100 bg-transparent dark:border-gray-700">
+                    <p id="user-name" class="text-sm font-medium text-gray-900 dark:text-white">Botanical User</p>
+                    <p id="user-email" class="text-xs text-gray-500 truncate dark:text-gray-400">user@keybase.test</p>
+                </div>
+
+                <div class="py-1">
+                    <a href="/admin"
+                        class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 bg-transparent">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="mr-2 h-4 w-4">
+                            <rect width="7" height="9" x="3" y="3" rx="1"></rect>
+                            <rect width="7" height="5" x="14" y="3" rx="1"></rect>
+                            <rect width="7" height="9" x="14" y="12" rx="1"></rect>
+                            <rect width="7" height="5" x="3" y="16" rx="1"></rect>
+                        </svg>
+                        <span>Dashboard</span>
+                    </a>
+
+                    <div class="h-px bg-gray-100 dark:bg-gray-700 my-1"></div>
+
+                    <a href="/auth/logout-redirect"
+                        class="flex items-center rounded-b-lg px-4 py-2 text-sm text-red-600 bg-transparent">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="mr-2 h-4 w-4">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" x2="9" y1="12" y2="12"></line>
+                        </svg>
+                        <span>Log out</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="md:hidden space-y-4">
+            <div class="flex items-center space-x-3 px-2">
+                <div id="user-initials-mobile"
+                    class="h-10 w-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold dark:bg-emerald-900 dark:text-emerald-100">
+                </div>
+                <div>
+                    <p id="user-name-mobile" class="text-sm font-bold text-gray-900 dark:text-white"></p>
+                    <p id="user-email-mobile" class="text-xs text-gray-500 dark:text-gray-400"></p>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-1">
+                <a href="/admin" class="flex items-center p-2 text-gray-600 dark:text-gray-300">
+                    Dashboard
+                </a>
+                <a href="/auth/logout-redirect" class="flex w-full items-center p-2 text-red-500">
+                    Log out
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+
+        
+        <button id="mobile-menu-toggle" class="p-2 md:hidden text-gray-600 dark:text-gray-300">
+            <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+    </div>
+</nav>
+        
+        <div id="mobile-menu-dropdown" class="mt-4 hidden flex-col space-y-4 pb-6 md:hidden">
+            <a href="/projects" class="text-lg font-medium text-gray-600 dark:text-gray-300">Projects</a>
+            <a href="/about" class="text-lg font-medium text-gray-600 dark:text-gray-300">About</a>
+            <a href="/docs/api" class="text-lg font-medium text-gray-600 dark:text-gray-300">API</a>
+            
+            
+            <div class="mt-2 border-t border-gray-100 pt-4 dark:border-gray-800">
+                <div id="user-auth-container" class="relative">
+    
+    <a id="guest-login-link" href="/login"
+        class="hidden items-center space-x-2 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 w-fit">
+        <img src="https://orcid.org/assets/vectors/orcid.logo.icon.svg" alt="ORCID" class="h-4 w-4" />
+        <span>Login with ORCID</span>
+    </a>
+
+    
+    <div id="auth-user-menu" class="hidden">
+        
+        <div class="hidden md:block">
+            <button type="button" id="user-menu-button"
+                class="flex rounded-full border-2 border-transparent transition hover:border-green-200 focus:outline-none">
+                <div id="user-initials"
+                    class="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 font-semibold text-sm">
+                </div>
+            </button>
+
+            <div id="user-dropdown"
+                class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-lg border border-gray-300 bg-white shadow-lg overflow-hidden dark:bg-black dark:border-gray-700">
+                <div class="px-4 py-2 rounded-t-lg border-b border-gray-100 bg-transparent dark:border-gray-700">
+                    <p id="user-name" class="text-sm font-medium text-gray-900 dark:text-white">Botanical User</p>
+                    <p id="user-email" class="text-xs text-gray-500 truncate dark:text-gray-400">user@keybase.test</p>
+                </div>
+
+                <div class="py-1">
+                    <a href="/admin"
+                        class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 bg-transparent">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="mr-2 h-4 w-4">
+                            <rect width="7" height="9" x="3" y="3" rx="1"></rect>
+                            <rect width="7" height="5" x="14" y="3" rx="1"></rect>
+                            <rect width="7" height="9" x="14" y="12" rx="1"></rect>
+                            <rect width="7" height="5" x="3" y="16" rx="1"></rect>
+                        </svg>
+                        <span>Dashboard</span>
+                    </a>
+
+                    <div class="h-px bg-gray-100 dark:bg-gray-700 my-1"></div>
+
+                    <a href="/auth/logout-redirect"
+                        class="flex items-center rounded-b-lg px-4 py-2 text-sm text-red-600 bg-transparent">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="mr-2 h-4 w-4">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" x2="9" y1="12" y2="12"></line>
+                        </svg>
+                        <span>Log out</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="md:hidden space-y-4">
+            <div class="flex items-center space-x-3 px-2">
+                <div id="user-initials-mobile"
+                    class="h-10 w-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold dark:bg-emerald-900 dark:text-emerald-100">
+                </div>
+                <div>
+                    <p id="user-name-mobile" class="text-sm font-bold text-gray-900 dark:text-white"></p>
+                    <p id="user-email-mobile" class="text-xs text-gray-500 dark:text-gray-400"></p>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-1">
+                <a href="/admin" class="flex items-center p-2 text-gray-600 dark:text-gray-300">
+                    Dashboard
+                </a>
+                <a href="/auth/logout-redirect" class="flex w-full items-center p-2 text-red-500">
+                    Log out
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</header>
+      <div class="container mx-auto grid grid-cols-1 gap-4 lg:gap-8 lg:grid-cols-4 py-6 px-4 h-full">
+          <aside class="lg:col-span-1 h-full">
+    
+    <button id="sidebar-toggle" class="flex items-center justify-between w-full px-4 py-3 mb-2 bg-white border border-gray-200 rounded-xl lg:hidden dark:bg-black dark:border-gray-700">
+        <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Documentation Menu</span>
+        <svg id="sidebar-arrow" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+    </button>
+
+    
+    <nav id="sidebar-menu" class="hidden lg:block sticky top-20 pt-1.75"> 
+        <div class="bg-white border border-gray-200 rounded-xl p-6 pt-8 dark:border-gray-700 dark:bg-black">
+            <div class="mb-8">
+              <h3 class="text-xs font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-gray-900 dark:text-white">
+                    <a href="/" class="hover:text-green-500">
+                <span>Introduction</span>
+            </a>
+            </h3>
+    
+    
+    <h3 class="text-xs font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-gray-600 dark:text-gray-400">
+                    Using Keys
+            </h3>
+            <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
+                                            <li>
+                    <a href="/docs/using-keys/finding-keys" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        How to find keys
+                    </a>
+                </li>
+                    </ul>
+    
+    
+    <h3 class="text-xs font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-gray-600 dark:text-gray-400">
+                    Editor Guides
+            </h3>
+            <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
+                                            <li>
+                    <a href="/docs/editor-guides/orcid-login" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Login with ORCID
+                    </a>
+                </li>
+                    </ul>
+    
+    
+    <h3 class="text-xs font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-gray-600 dark:text-gray-400">
+                    Developer API
+            </h3>
+    
+    
+    <h3 class="text-xs font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-green-600 dark:text-green-400">
+                    Theory
+            </h3>
+            <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
+                                            <li>
+                    <a href="/docs/theory/anatomy-of-pathway-keys" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-emerald-600 font-bold">
+                        Anatomy of pathway keys
+                    </a>
+                </li>
+                    </ul>
+                </div>
+
+        </div>
+    </nav>
+</aside>
+          <main class="lg:col-span-3 prose prose-sm max-w-none dark:prose-invert">
+              <div class="bg-white border border-gray-200 rounded-xl p-6 pt-8 dark:bg-black dark:border-gray-700">
+                  
+                  <header class="mb-8">
+                      <nav class="flex items-center text-gray-500 text-sm tracking-wide" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 list-none mt-0 pl-0">
+        <li class="-ml-0.5">
+            <a href="/docs/" class="hover:text-green-600 transition-colors no-underline">Home</a>
+        </li>
+        
+        <li class="flex items-center space-x-2">
+            <span class="text-gray-400">/</span>
+            
+                            <span class="">Theory</span>
+                    </li>
+
+                    <li class="flex items-center space-x-2">
+                <span class="text-gray-400">/</span>
+                <span class="text-gray-900 dark:text-white">Anatomy of pathway keys</span>
+            </li>
+            </ol>
+</nav>
+
+                      <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">
+                          Anatomy of pathway keys
+                      </h1>
+                      
+                                        </header>
+
+                  
+                                        <div class="my-8 p-6 border border-gray-200 dark:border-gray-800 rounded-sm">
+        <h4 class="text-xs font-bold uppercase tracking-widest mb-4 text-gray-500 dark:text-gray-400">
+            On this page
+        </h4>
+        <ul class="space-y-3">
+                                            <li class="">
+                    <a href="#errors" 
+                       class="transition-colors duration-200 hover:text-gray-900 dark:hover:text-white
+                       text-sm font-semibold text-green-600 dark:text-green-400">
+                        Errors
+                    </a>
+                </li>
+                                            <li class="ml-4">
+                    <a href="#orphan-couplets" 
+                       class="transition-colors duration-200 hover:text-gray-900 dark:hover:text-white
+                       text-xs font-medium text-gray-500 dark:text-gray-400">
+                        Orphan couplets 
+                    </a>
+                </li>
+                                            <li class="ml-4">
+                    <a href="#dead-ends" 
+                       class="transition-colors duration-200 hover:text-gray-900 dark:hover:text-white
+                       text-xs font-medium text-gray-500 dark:text-gray-400">
+                        Dead ends
+                    </a>
+                </li>
+                                            <li class="ml-4">
+                    <a href="#singleton-couplets" 
+                       class="transition-colors duration-200 hover:text-gray-900 dark:hover:text-white
+                       text-xs font-medium text-gray-500 dark:text-gray-400">
+                        Singleton couplets
+                    </a>
+                </li>
+                                            <li class="ml-4">
+                    <a href="#loops" 
+                       class="transition-colors duration-200 hover:text-gray-900 dark:hover:text-white
+                       text-xs font-medium text-gray-500 dark:text-gray-400">
+                        Loops
+                    </a>
+                </li>
+                                            <li class="">
+                    <a href="#warnings" 
+                       class="transition-colors duration-200 hover:text-gray-900 dark:hover:text-white
+                       text-sm font-semibold text-green-600 dark:text-green-400">
+                        Warnings
+                    </a>
+                </li>
+                                            <li class="ml-4">
+                    <a href="#polytomies" 
+                       class="transition-colors duration-200 hover:text-gray-900 dark:hover:text-white
+                       text-xs font-medium text-gray-500 dark:text-gray-400">
+                        Polytomies
+                    </a>
+                </li>
+                                            <li class="ml-4">
+                    <a href="#reticulations" 
+                       class="transition-colors duration-200 hover:text-gray-900 dark:hover:text-white
+                       text-xs font-medium text-gray-500 dark:text-gray-400">
+                        Reticulations
+                    </a>
+                </li>
+                                            <li class="">
+                    <a href="#special-features" 
+                       class="transition-colors duration-200 hover:text-gray-900 dark:hover:text-white
+                       text-sm font-semibold text-green-600 dark:text-green-400">
+                        Special features
+                    </a>
+                </li>
+                                            <li class="ml-4">
+                    <a href="#subkeys" 
+                       class="transition-colors duration-200 hover:text-gray-900 dark:hover:text-white
+                       text-xs font-medium text-gray-500 dark:text-gray-400">
+                        Subkeys
+                    </a>
+                </li>
+                                            <li class="ml-4">
+                    <a href="#shortcuts" 
+                       class="transition-colors duration-200 hover:text-gray-900 dark:hover:text-white
+                       text-xs font-medium text-gray-500 dark:text-gray-400">
+                        Shortcuts
+                    </a>
+                </li>
+                    </ul>
+    </div>
+                  
+                  
+                  <div class="prose dark:prose-invert max-w-none">
+                      <h2>Errors</h2>
+
+<h3>Orphan couplets <span 
+    class="inline-flex items-center mx-2 px-2 py-0.5 rounded-full text-[12px] font-bold tracking-wider border align-middle -mt-0.5 bg-transparent text-red-600 border-red-600 dark:text-red-400 dark:border-red-400 whitespace-nowrap" 
+    aria-hidden="true" 
+    aria-label="debug level: error"
+>
+    Error
+</span></h3>
+
+<p><figure class="my-10 flex flex-col items-center">
+    <div class="w-fit max-w-full p-3 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-900 dark:border-gray-800">
+        
+        
+        <div class="overflow-hidden rounded-lg">
+            <img src="/assets/images/orphan-couplet.drawio.svg" 
+                 alt="Orphan couplet" 
+                 class="block mx-auto max-h-[500px] w-auto h-auto object-contain">
+        </div>
+
+        
+                    <figcaption class="mt-3 px-1 text-sm leading-relaxed text-gray-600 dark:text-gray-400 italic">
+                </p>
+
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+
+<p>
+            </figcaption>
+            </div>
+</figure></p>
+
+<h3>Dead ends</h3>
+
+<p><img src="/assets/images/dead-end.drawio.svg" alt="" /></p>
+
+<h3>Singleton couplets</h3>
+
+<p><img src="/assets/images/singleton.drawio.svg" alt="" /></p>
+
+<h3>Loops</h3>
+
+<p><img src="/assets/images/loop.drawio.svg" alt="" /></p>
+
+<h2>Warnings</h2>
+
+<h3>Polytomies</h3>
+
+<p><img src="/assets/images/polytomy.drawio.svg" alt="" /></p>
+
+<h3>Reticulations</h3>
+
+<p><img src="/assets/images/reticulation-resolved.drawio.svg" alt="" /></p>
+
+<p><img src="/assets/images/reticulation-new-graph.drawio.svg" alt="" /></p>
+
+<h2>Special features</h2>
+
+<h3>Subkeys</h3>
+
+<p><img src="/assets/images/subkeys.drawio.svg" alt="" /></p>
+
+<h3>Shortcuts</h3>
+
+<p><img src="/assets/images/shortcut.drawio.svg" alt="" /></p>
+                  </div>
+              </div>
+          </main>
+      </div>
+
+      <div id="mobile-menu" class="hidden fixed inset-0 z-100 lg:hidden" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm"></div>
+
+    <div class="fixed inset-y-0 left-0 w-full max-w-xs bg-white dark:bg-black p-6 shadow-xl">
+        <div class="flex items-center justify-between mb-8">
+            <span class="text-emerald-600 font-bold dark:text-emerald-400">Botanical Keys</span>
+            <button onclick="toggleMobileMenu()" class="text-gray-500">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+        </div>
+
+        <nav class="space-y-4">
+            <h3 class="text-xs font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-gray-900 dark:text-white">
+                    <a href="/" class="hover:text-green-500">
+                <span>Introduction</span>
+            </a>
+            </h3>
+    
+    
+    <h3 class="text-xs font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-gray-600 dark:text-gray-400">
+                    Using Keys
+            </h3>
+            <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
+                                            <li>
+                    <a href="/docs/using-keys/finding-keys" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        How to find keys
+                    </a>
+                </li>
+                    </ul>
+    
+    
+    <h3 class="text-xs font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-gray-600 dark:text-gray-400">
+                    Editor Guides
+            </h3>
+            <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
+                                            <li>
+                    <a href="/docs/editor-guides/orcid-login" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Login with ORCID
+                    </a>
+                </li>
+                    </ul>
+    
+    
+    <h3 class="text-xs font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-gray-600 dark:text-gray-400">
+                    Developer API
+            </h3>
+    
+    
+    <h3 class="text-xs font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-green-600 dark:text-green-400">
+                    Theory
+            </h3>
+            <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
+                                            <li>
+                    <a href="/docs/theory/anatomy-of-pathway-keys" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-emerald-600 font-bold">
+                        Anatomy of pathway keys
+                    </a>
+                </li>
+                    </ul>
+            </nav>
+    </div>
+</div>
+      <script type="module" src="/assets/build/assets/main-DtRHhpFw.js"></script>
+      <script>
+          document.addEventListener('DOMContentLoaded', function () {
+              const toggleButton = document.getElementById('mobile-menu-toggle');
+              const mobileMenu = document.getElementById('mobile-menu-dropdown');
+              const menuIcon = document.getElementById('menu-icon');
+              const closeIcon = document.getElementById('close-icon');
+
+              if (toggleButton && mobileMenu && menuIcon && closeIcon) {
+                  toggleButton.addEventListener('click', function () {
+                      const isHidden = mobileMenu.classList.contains('hidden');
+                      if (isHidden) {
+                          mobileMenu.classList.remove('hidden');
+                          mobileMenu.classList.add('flex');
+                          menuIcon.classList.add('hidden');
+                          closeIcon.classList.remove('hidden');
+                      } else {
+                          mobileMenu.classList.add('hidden');
+                          mobileMenu.classList.remove('flex');
+                          menuIcon.classList.remove('hidden');
+                          closeIcon.classList.add('hidden');
+                      }
+                  });
+
+                  // Close mobile menu when a link is clicked
+                  mobileMenu.querySelectorAll('a').forEach(link => {
+                      link.addEventListener('click', () => {
+                          mobileMenu.classList.add('hidden');
+                          mobileMenu.classList.remove('flex');
+                          menuIcon.classList.remove('hidden');
+                          closeIcon.classList.add('hidden');
+                      });
+                  });
+              }
+
+              // Scroll active sidebar link into view
+              // We use 'nearest' so it only scrolls if the link is actually off-screen
+              const activeLink = document.querySelector('aside .bg-emerald-50, aside .bg-emerald-900\\/30');
+              if (activeLink) {
+                  // A tiny timeout ensures the browser has finished its initial paint
+                  setTimeout(() => {
+                      activeLink.scrollIntoView({
+                          behavior: 'smooth',
+                          block: 'nearest'
+                      });
+                  }, 100);
+              }
+
+              // 2. NEW Sidebar Toggle Logic
+              const sidebarToggle = document.getElementById('sidebar-toggle');
+              const sidebarMenu = document.getElementById('sidebar-menu');
+              const sidebarArrow = document.getElementById('sidebar-arrow');
+
+              if (sidebarToggle && sidebarMenu) {
+                  sidebarToggle.addEventListener('click', function () {
+                      const isHidden = sidebarMenu.classList.toggle('hidden');
+                      
+                      // Rotate the arrow icon if it exists
+                      if (sidebarArrow) {
+                          sidebarArrow.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
+                      }
+                  });
+              }
+          });
+      </script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@import "highlight.js/styles/github-dark.css";
+
+/* This replaces the 'content' array in the old config */
+@source "../../**/*.{blade.php,md,html}";
+/* @source "../../../../keybase-2025/resources/js*.jsx"; */
+
+
+@layer components {
+    .fade-in {
+        animation: fadeIn 0.01s ease-in;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }  
+}
+
