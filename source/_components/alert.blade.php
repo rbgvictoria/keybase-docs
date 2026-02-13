@@ -35,6 +35,6 @@
         {{ isset($title) ? $title : ucfirst($type) }}
     </div>
     <div class="leading-relaxed {{ $theme['body'] }}">
-        {{ $slot }}
+        @markdown($slot)
     </div>
 </div>

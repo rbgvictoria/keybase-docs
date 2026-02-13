@@ -11,7 +11,7 @@
         @endif
 
         <div class="text-sm text-gray-600 dark:text-gray-400 leading-snug">
-            {{ $slot }}
+            @markdown(trim($slot))
         </div>
     </div>
 </div>

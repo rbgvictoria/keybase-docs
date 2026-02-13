@@ -35,6 +35,10 @@
 }
 
 @layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
   /* Force system support */
   :root { color-scheme: light dark; }
   .dark { color-scheme: dark; }
@@ -123,4 +127,74 @@
   li { margin-top: 0; margin-bottom: 0; }
   li > p { margin-top: 0; margin-bottom: 0; }
   li > :last-child { margin-bottom: 0; }
+
+  /* 1. Remove the border/background from the outer container */
+  & pre {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 2rem 0; /* Keeps the spacing but removes the "box" feel */
+  }
+
+  /* 2. Style the actual code block inside */
+  & pre code {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    font-weight: 400; /* Overrides the default prose bolding for code */
+  }
+
+  /* 3. Handle inline code (code not inside a pre) differently if desired */
+  & :not(pre) > code {
+    background-color: var(--color-slate-100);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-slate-200);
+  }
+  
+  /* 4. Fix the underline issue for your TOC links */
+  & a {
+    text-decoration: none;
+  }
+
+  & :is(h2, h3, h4) {
+    @apply scroll-mt-20;
+  }
+
+  /* Ensure jumping back from a footnote doesn't hide the text under the header */
+  & .footnote-ref, [id^="fn:"], [id^="fnref:"] {
+      @apply scroll-mt-20;
+  }
+
+  & li:has(input[type="checkbox"]) {
+    @apply list-none -ml-6 flex items-start; 
+  }
+
+  & li input[type="checkbox"] {
+    /* h-4 w-4 is exactly 16px. In a 24px line-height (prose default), 
+       we need to push it down 4px to center it perfectly. */
+    @apply relative h-3.5 w-3.5 shrink-0 cursor-default rounded border border-gray-300 mr-2 mt-[8px] inline-grid place-items-center;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    /* This ensures the inner checkmark doesn't grow the 16px box */
+    box-sizing: border-box; 
+  }
+
+  /* Unchecked: Dark mode aware */
+  & li input[type="checkbox"]:not(:checked) {
+    @apply bg-white dark:bg-gray-800;
+  }
+
+  /* Checked: Same size, just different color */
+  & li input[type="checkbox"]:checked {
+    @apply bg-green-600 border-green-600;
+  }
+
+  & li input[type="checkbox"]:checked::before {
+    content: "";
+    @apply block w-[0.65em] h-[0.65em] bg-white;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    /* Using a clip-path inside a grid means the parent h-4 never shifts */
+  }
 }

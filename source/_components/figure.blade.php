@@ -11,7 +11,7 @@
         {{-- The Caption (Now inside the box) --}}
         @if($slot->isNotEmpty())
             <figcaption class="mt-3 px-1 text-sm leading-relaxed text-gray-600 dark:text-gray-400 italic">
-                {{ $slot }}
+                @inlineMarkdown(trim($slot))
             </figcaption>
         @endif
     </div>

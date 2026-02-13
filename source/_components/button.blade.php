@@ -1,5 +1,5 @@
 @php
-    $base = "inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2";
+    $base = "inline-flex items-center justify-center px-5 py-1.5 text-sm font-semibold no-underline rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2";
     
     $variants = [
         'primary' => "bg-green-600 text-white hover:bg-green-700 shadow-sm focus:ring-green-500",
@@ -9,6 +9,4 @@
     $class = $variants[$variant ?? 'primary'];
 @endphp
 
-<a href="{{ $url }}" class="{{ $base }} {{ $class }}">
-    {{ $slot }}
-</a>
+<a href="{{ $url }}" class="{{ $base }} {{ $class }}">@inlineMarkdown(trim($slot))</a>
