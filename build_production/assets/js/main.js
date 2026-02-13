@@ -2,7 +2,6 @@
  * 1. IMPORTS & CONFIGURATION
  */
 import hljs from 'highlight.js/lib/core';
-import 'highlight.js/styles/github-dark.css';
 
 // Syntax Highlighting Languages
 import bash from 'highlight.js/lib/languages/bash';
@@ -63,10 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     updateText(`${key}-mobile`, data.user[key.split('-')[1]]);
                 });
                 document.querySelectorAll('#auth-user-menu').forEach(m => m.classList.remove('hidden'));
+                document.querySelectorAll('#guest-login-link').forEach(l => l.classList.replace('flex', 'hidden'));
             } else {
-                document.querySelectorAll('#guest-login-link').forEach(l => {
-                    l.classList.replace('hidden', 'flex');
-                });
+                document.querySelectorAll('#guest-login-link').forEach(l => l.classList.replace('hidden', 'flex'));
             }
         }).catch(() => console.log("Auth check skipped."));
 
@@ -117,9 +115,9 @@ window.copyCode = function(targetId, btn) {
     });
 };
 
-window.toggleMobileMenu = function() {
-    const menu = document.getElementById('mobile-menu');
-    if (!menu) return;
-    menu.classList.toggle('hidden');
-    document.body.classList.toggle('overflow-hidden');
-};
+  window.toggleMobileMenu = function() {
+      const menu = document.getElementById('mobile-menu');
+      if (!menu) return;
+      menu.classList.toggle('hidden');
+      document.body.classList.toggle('overflow-hidden');
+  };
