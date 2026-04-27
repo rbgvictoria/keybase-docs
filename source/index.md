@@ -1,5 +1,5 @@
 ---
-extends: _layouts.docs
+extends: _layouts.keybase
 title: KeyBase documentation
 ---
 
@@ -7,7 +7,7 @@ This is the main entry point. Use the sidebar on the left to navigate through th
 
 ## Quick Links
 
-- [Finding Keys](/docs/using-keys/finding-keys)
-- [Editor Setup](/docs/editing/setup)
+- [Finding Keys](/keybase/using-keys/finding-keys)
+- [Editor Setup](/keybase/editing/setup)
 
 ---

@@ -1,5 +1,5 @@
 ---
-extends: _layouts.docs
+extends: _layouts.keybase
 title: Anatomy of pathway keys
 order: 1
 ---

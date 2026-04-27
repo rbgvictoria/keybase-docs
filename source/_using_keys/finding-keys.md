@@ -1,5 +1,5 @@
 ---
-extends: _layouts.docs
+extends: _layouts.keybase
 title: How to find keys
 order: 1
 ---

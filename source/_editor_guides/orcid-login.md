@@ -2,7 +2,7 @@
 title: Login with ORCID
 category: Authentication
 order: 1
-extends: _layouts.docs
+extends: _layouts.keybase
 section: content
 ---
 
