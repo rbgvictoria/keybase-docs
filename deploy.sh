@@ -20,6 +20,12 @@ if [ -z "$1" ]; then
     usage
 fi
 
+echo "🔄 Updating shared resources..."
+git submodule update --remote --merge
+
+echo "📦 Compiling assets..."
+npm run assets 
+
 cd "$DOCS_DIR"
 
 case "$1" in
