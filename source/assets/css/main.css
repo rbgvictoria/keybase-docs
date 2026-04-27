@@ -2,13 +2,30 @@
 
 /* Reach all the way up to root, then back into shared */
 @import "../../../source/_shared/assets/css/main.css";
-
-/* Reach all the way up to root, then scan everything in source */
 @source "../../../source/**/*";
+
+@theme {
+  /* KeyBase Emerald/Green Palette */
+  --color-primary-50: #ecfdf5;
+  --color-primary-100: #d1fae5;
+  --color-primary-200: #a7f3d0;
+  --color-primary-300: #6ee7b7;
+  --color-primary-400: #34d399;
+  --color-primary-500: #10b981;
+  --color-primary-600: #059669; /* Your current primary color */
+  --color-primary-700: #047857;
+  --color-primary-800: #065f46;
+  --color-primary-900: #064e3b;
+  --color-primary-950: #022c22;
+}
 
 @layer base {
   :root {
-    --primary-color: #059669;
-    --bg-gradient-from: #f0fdf4; 
+    /* Map your old variable to the new palette for backward compatibility */
+    --primary-color: var(--color-primary-600);
+    
+    /* These feed the gradient logic in your shared layout */
+    --page-bg-from: var(--color-primary-50);
+    --page-bg-to: var(--color-primary-100);
   }
 }
