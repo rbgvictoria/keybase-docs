@@ -6,6 +6,7 @@
 /.vscode/
 npm-debug.log
 hot
+.env
 
 # Optional ignores
 /build_staging/
