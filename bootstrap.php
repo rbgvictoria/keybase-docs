@@ -52,3 +52,11 @@ $container->make('bladeCompiler')->directive('inlineMarkdown', function ($expres
         echo preg_replace('/^<p>(.*)<\/p>$/s', '$1', trim(\$content)); 
     ?>";
 });
+
+/** @var $events \TightenCo\Jigsaw\Events\EventBus */
+$events->beforeBuild(function ($jigsaw) {
+    // This tells Jigsaw to look in the shared folder for components
+    $jigsaw->getContainer()
+           ->make(\TightenCo\Jigsaw\View\ComponentTagCompiler::class)
+           ->registerComponentDirectory('source/_shared/_components');
+});
