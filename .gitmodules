@@ -1,3 +1,4 @@
 [submodule "source/_shared"]
 	path = source/_shared
 	url = https://github.com/rbgvictoria/jigsaw-shared-components.git
+	branch = main
