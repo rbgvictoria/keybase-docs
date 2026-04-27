@@ -2,8 +2,9 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "vite build"
+        "update-shared": "git submodule update --remote --merge",
+        "dev": "npm run update-shared && npx vite",
+        "build": "npm run update-shared && npx vite build && ./vendor/bin/jigsaw build production"
     },
     "devDependencies": {
         "@tighten/jigsaw-vite-plugin": "^1.0.1",
