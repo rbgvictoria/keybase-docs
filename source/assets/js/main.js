@@ -1,7 +1,7 @@
 // source/assets/js/main.js
 
 // 1. Import the shared engine
-import { highlightAll } from '../../../source/_shared/js/main.js';
+import { highlightAll } from '../../../source/_shared/assets/js/main.js';
 
 // 2. Local Utility
 const updateText = (id, value) => {
