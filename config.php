@@ -23,6 +23,15 @@ $collections = [
 
 return [
     'baseUrl' => 'http://keybase-docs.test',
+    'appUrl' => '',
+    'siteName' => 'KeyBase Documentation',
+    'siteLogo' => '/assets/images/keybase-logo-80.png',
+    'siteMenu' => [
+        ['title' => 'Projects', 'link' => '/projects'],
+        ['title' => 'About', 'link' => '/about'],
+        ['title' => 'API', 'link' => '/docs/api'],
+        ['title' => 'Docs', 'link' => '/docs'],
+    ],
     'collections' => $collections,
     'navigation' => $navigation,
 ];

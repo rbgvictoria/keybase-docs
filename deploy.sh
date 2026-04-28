@@ -24,7 +24,7 @@ echo "🔄 Updating shared resources..."
 git submodule update --remote --merge
 
 echo "📦 Compiling assets..."
-npm run assets 
+npm run build 
 
 cd "$DOCS_DIR"
 
